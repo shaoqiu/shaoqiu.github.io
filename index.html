@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>forever love</title>
+
+<style type="text/css">
+@font-face {
+	font-family: digit;
+	src: url('digital-7_mono.ttf') format("truetype");
+}
+</style>
+
+<link href="css/default.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/garden.js"></script>
+<script type="text/javascript" src="js/functions.js"></script>
+<script src="audiojs/audio.min.js"></script>
+<script>
+  audiojs.events.ready(function() {
+    var as = audiojs.createAll();
+  });
+</script>
+</head>
+
+<body>
+
+<div id="mainDiv">
+	<div id="content">
+        <div id="audio">
+		<audio id="love_song" src="I-will-always-be-right-there.mp3" preload="auto" loop="loop"/>
+        </div>
+
+		<div id="code">
+            I will always be right there <br />
+            I swear to you <br />
+            I will always be there for you <br />
+            There's nothing I won't do <br />
+            I promise you <br />
+            All my life I will live for you <br />
+            We will make it through <br />
+            Foreve we will be together you and me <br />
+            Oh n' when I hold you, Nothing can compare <br />
+            With all of my heart <br />
+            You know I'll always be right there <br />
+            I believe in us <br />
+            Nothing else could ever mean so much <br />
+            You're the one I trust, Our time has come <br />
+            We're not two people, Now we are one <br />
+            you're second to none <br />
+            Forever we will be, Together a family <br />
+            The more I get to know you, Nothing can compare <br />
+            With all of my heart <br />
+            you know I'll always be right there <br />
+            Forever we will be, Together just you and me <br />
+            The more I get to know you, The more I really care <br />
+            With all of my heart, you know I'll always be... <br />
+            You know I really love you <br />
+            You nothing can compare <br />
+            For all of my life <br />
+            You know I'll always be Right there <br />
+		</div>
+		<div id="loveHeart">
+			<canvas id="garden"></canvas>
+			<div id="words">
+				<div id="messages">
+					亲爱的君君，这是我们相爱在一起的时光。
+					<div id="elapseClock"></div>
+				</div>
+				<div id="loveu">
+					爱你直到永永远远。<br/>
+					<div class="signature">- 少秋</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+var offsetX = $("#loveHeart").width() / 2;
+var offsetY = $("#loveHeart").height() / 2 - 55;
+var together = new Date();
+// 2015-04-09
+together.setFullYear(2015, 3, 9);
+together.setHours(22);
+together.setMinutes(0);
+together.setSeconds(0);
+together.setMilliseconds(0);
+
+if (!document.createElement('canvas').getContext) {
+	var msg = document.createElement("div");
+	msg.id = "errorMsg";
+	msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+	document.body.appendChild(msg);
+	$("#code").css("display", "none")
+	$("#copyright").css("position", "absolute");
+	$("#copyright").css("bottom", "10px");
+	document.execCommand("stop");
+} else {
+	setTimeout(function () {
+		startHeartAnimation();
+	}, 5000);
+
+	timeElapse(together);
+	setInterval(function () {
+		timeElapse(together);
+	}, 500);
+
+	adjustCodePosition();
+	$("#code").typewriter();
+}
+</script>
+</div>
+</body>
+</html>
